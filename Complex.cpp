@@ -10,20 +10,27 @@ public:
 	Complex();
 	Complex(int a, int b);
 	Complex(const Complex &sp);
-	friend istream& operator >>(istream &is, Complex &sp);
-	friend ostream& operator <<(ostream &os, Complex &sp);
+	~Complex();
+	void setThuc(int a);
+	int getThuc();
+	void setAo(int b);
+	int getAo();
+// 	friend istream& operator >>(istream &is, Complex &sp);
+// 	friend ostream& operator <<(ostream &os, Complex &sp);
 	friend Complex operator +(Complex sp1, Complex sp2);
 	friend Complex operator -(Complex sp1, Complex sp2);	
 };
 
 Complex::Complex()
 {
+	this->a = 0;
+	this->b = 0;
 }
 
 Complex::Complex(int a, int b)
 {
-	this->a = 0;
-	this->b = 0;
+	this->a = a;
+	this->b = b;
 }
 Complex::Complex(const Complex &sp)
 {
@@ -31,19 +38,21 @@ Complex::Complex(const Complex &sp)
 	this->b = sp.b;
 }
 
-istream& operator >>(istream &is, Complex &sp)
-{
-	cout << "\nPhan thuc: ";
-	is>>sp.a;
-	cout << "\nPhan ao: ";
-	is>>sp.b;
-	return is;
-}
-ostream& operator <<(ostream &os, Complex &sp)
-{
-	os<<sp.a<<" + "<<sp.b<<"*i\n";
-	return os;
-}
+
+
+// istream& operator >>(istream &is, Complex &sp)
+// {
+// 	cout << "\nPhan thuc: ";
+// 	is>>sp.a;
+// 	cout << "\nPhan ao: ";
+// 	is>>sp.b;
+// 	return is;
+// }
+// ostream& operator <<(ostream &os, Complex &sp)
+// {
+// 	os<<sp.a<<" + "<<sp.b<<"*i\n";
+// 	return os;
+// }
 
 Complex operator +(Complex sp1, Complex sp2)
 {
